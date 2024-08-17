@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Cozy Orphanage</title>
+    <style>
+        /* CSS Styles */
+        html {
+    scroll-padding-top: 80px; /* Adjust this value based on the height of your nav bar */
+}
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+            color: #333;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, #4a0d8f 0%, #fa2a8f 100%);
+            padding: 1rem 0;
+            box-shadow: 0px 5px 23px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-menu ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            padding: 1rem;
+            display: block;
+        }
+
+        .nav-menu a:hover {
+            color: #d6619c;
+        }
+
+       
+        .background-image h1 {
+            font-size: 60px;
+            margin-bottom: 1.5rem;
+        }
+
+        .background-image p {
+            font-size: 23px;
+            color: #ffb8f6;
+        }
+
+        .container {
+            padding: 80px 20px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #4a0d8f;
+        }
+
+        .columns {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .column {
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .column h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #fa2a8f;
+        }
+
+        .column p {
+            font-size: 16px;
+        }
+
+        .events {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .event-item {
+            margin-bottom: 20px;
+        }
+
+        .event-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #faf6fb;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+        }
+
+        .social-icons a {
+            color: #f4c9e2;
+            margin: 0 0.5rem;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .social-icons a:hover {
+            color: #e38cb7;
+        }
+
+        /* Custom Styles for the Text Section */
+        .text-section {
+            background-color: #4a0d8f; /* Background color used in the previous page */
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .text-section h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .text-section p {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        #hero {
+            background: linear-gradient(135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+            margin-top: 60px; /* Offset for fixed header */
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 23px;
+            color: #ffb8f6;
+        }
+        /* Existing styles */
+
+.columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Adds space between cards */
+}
+
+.column {
+    flex: 1;
+    background: #ffffff; /* White background for cards */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    padding: 20px;
+    text-align: center; /* Center align text */
+    transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+}
+
+.column h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fa2a8f; /* Color for service title */
+}
+
+.column p {
+    font-size: 16px;
+    color: #333; /* Darker color for description text */
+}
+
+.column:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+        #about {
+    background: #f4f4f9; /* Light background for better contrast */
+    padding: 40px 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center;
+}
+
+.section-header {
+    font-size: 28px;
+    color: #fa2a8f; /* Color for section header */
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-size: 18px;
+    color: #555; /* Dark grey text for better readability */
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-details h2 {
+    font-size: 22px;
+    color: #fa2a8f; /* Color for section titles */
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.about-details p {
+    font-size: 16px;
+    color: #333; /* Darker color for body text */
+    margin-bottom: 20px;
+}
+/* Upcoming Events Section */
+#events {
+    background: #fff;
+    padding: 40px 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.section-header {
+    font-size: 28px;
+    color: #fa2a8f; /* Color for section header */
+    margin-bottom: 20px;
+}
+
+.event-item {
+    background: #f9f9f9; /* Slightly different background for event items */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.event-item h3 {
+    font-size: 22px;
+    color: #fa2a8f; /* Color for event titles */
+    margin-bottom: 10px;
+}
+
+.event-item p {
+    font-size: 16px;
+    color: #555; /* Dark grey text for better readability */
+}
+
+/* Footer */
+footer {
+    background: #333; /* Dark background for footer */
+    color: #fff; /* White text */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content p {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.social-icons a {
+    color: #fff; /* White icons */
+    margin: 0 10px;
+    font-size: 24px; /* Icon size */
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #fa2a8f; /* Hover color for icons */
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-menu">
+            <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#events">EVENTS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+        </nav>
+    </header>
+
+
+    <div id="hero" class="hero">
+        <h1>Welcome to Cozy Orphanage</h1>
+        <p>Providing a loving and nurturing home for children in need.</p>
+        <p>Our mission is to offer a safe environment where children can grow and thrive.</p>
+        <p>Join us in making a difference in the lives of these wonderful children.</p>
+    </div>
+
+    <div class="container">
+        <div id="services" class="section">
+            <div class="section-header">Our Services</div>
+            <div class="columns">
+                <div class="column">
+                    <h2>Service 1</h2>
+                    <p>Description of service 1. Providing educational support to children.</p>
+                </div>
+                <div class="column">
+                    <h2>Service 2</h2>
+                    <p>Description of service 2. Offering counseling and mental health support.</p>
+                </div>
+                <div class="column">
+                    <h2>Service 3</h2>
+                    <p>Description of service 3. Organizing recreational activities and outings.</p>
+                </div>
+            </div>
+        </div>
+
+       <div id="about" class="section">
+    <div class="section-header">About Us</div>
+    <p>Cozy Orphanage has been serving the community for over 20 years, providing a safe and nurturing environment for children. Our dedicated staff and volunteers work tirelessly to ensure that every child receives the care and support they need to thrive.</p>
+    <div class="about-details">
+        <h2>Our Vision</h2>
+        <p>Our vision is to create a world where every child has access to the resources and support needed to achieve their full potential. We believe in empowering children with education, love, and opportunities to build a brighter future.</p>
+        <h2>Our Mission</h2>
+        <p>Our mission is to provide a secure and loving environment where children can grow, learn, and develop essential life skills. We strive to foster a sense of community and belonging among the children, helping them to feel valued and cared for.</p>
+        <h2>Meet Our Team</h2>
+        <p>Our team consists of passionate individuals who are committed to making a positive impact in the lives of the children we serve. From experienced social workers to dedicated volunteers, each member of our team brings unique skills and a shared commitment to our cause.</p>
+    </div>
+</div>
+
+
+       <div id="events" class="section events">
+    <div class="section-header">Upcoming Events</div>
+    <div class="event-item">
+        <h3>Charity Gala</h3>
+        <p>Join us for a charity gala on October 10th, 2024, to raise funds for the orphanage. The event will feature dinner, entertainment, and a silent auction.</p>
+    </div>
+    <div class="event-item">
+        <h3>Community Fun Day</h3>
+        <p>We are hosting a community fun day on November 5th, 2024, with games, food, and activities for all ages. Come out and support our cause!</p>
+    </div>
+</div>
+
+    </div>
+
+    <footer>
+    <div id="contact" class="footer-content">
+        <p>Connect with us:</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+</footer>
+
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
